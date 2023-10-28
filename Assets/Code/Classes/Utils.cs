@@ -6,16 +6,19 @@ namespace CustomUtil
     {
         public static float GetFloatInRange(float min, float max)
         {
-            System.Random random = new System.Random();
-            double val = (random.NextDouble() * (max - min) + min);
-            return (float)val;
+            return (float)GetDoubleInRange(min, max);
         }
 
         public static float GetFloatInRange(Vector2 minMaxPair)
         {
+            return (float)GetDoubleInRange(minMaxPair.x, minMaxPair.y);
+        }
+
+        public static double GetDoubleInRange(double min, double max)
+        {
             System.Random random = new System.Random();
-            double val = (random.NextDouble() * (minMaxPair.y - minMaxPair.x) + minMaxPair.x);
-            return (float)val;
+            double val = (random.NextDouble() * (max - min) + min);
+            return val;
         }
     }
 }
